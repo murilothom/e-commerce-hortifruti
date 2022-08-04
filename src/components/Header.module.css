@@ -1,0 +1,33 @@
+.header {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background: #be7c4d;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.icons {
+  padding: 0.5rem 0;
+  transition: 0.3s;
+}
+
+.icons:hover {
+  fill: #a41b11;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count {
+  font-size: 1.5rem;
+  font-weight: 100;
+}

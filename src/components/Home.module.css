@@ -1,0 +1,12 @@
+.main h1 {
+  margin-top: 20px;
+  font-size: 3rem;
+}
+
+.main h1 span {
+  color: #be7c4d;
+}
+
+.content {
+  min-height: calc(100vh - 5.25rem);
+}
