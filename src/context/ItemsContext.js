@@ -3,7 +3,6 @@ import React from "react";
 export const ItemsContext = React.createContext();
 
 export const ItemsStorage = ({ children }) => {
-  const [countItems, setCountItems] = React.useState(null);
   const [dataItems, setDataItems] = React.useState(null);
   const [countDataItems, setCountDataItems] = React.useState(null);
   const [data, setData] = React.useState([]);
@@ -21,8 +20,6 @@ export const ItemsStorage = ({ children }) => {
   return (
     <ItemsContext.Provider
       value={{
-        countItems,
-        setCountItems,
         dataItems,
         setDataItems,
         countDataItems,

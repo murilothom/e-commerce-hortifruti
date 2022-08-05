@@ -5,21 +5,13 @@ import styles from "./CardList.module.css";
 import { ItemsContext } from "../context/ItemsContext";
 
 const CardList = () => {
-  const {
-    countItems,
-    setCountItems,
-    dataItems,
-    setDataItems,
-    ids,
-    setIds,
-    data,
-    setData,
-  } = React.useContext(ItemsContext);
+  const { dataItems, setDataItems, ids, setIds, data, setData } =
+    React.useContext(ItemsContext);
 
   function handleClick(e) {
-    setCountItems(countItems + 1);
     const id = e.target.parentElement.getAttribute("id");
     setIds([...ids, id]);
+    console.log(ids);
   }
 
   if (!data) return null;

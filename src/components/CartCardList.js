@@ -7,21 +7,14 @@ import { ItemsContext } from "../context/ItemsContext";
 const CartCardList = () => {
   const [selectedItems, setSelectedItems] = React.useState([]);
 
-  const {
-    countItems,
-    setCountItems,
-    dataItems,
-    setDataItems,
-    ids,
-    setIds,
-    data,
-    setData,
-  } = React.useContext(ItemsContext);
+  const { dataItems, setDataItems, ids, setIds, data, setData } =
+    React.useContext(ItemsContext);
 
   React.useEffect(() => {
     for (let i = 0; i < ids.length; i++) {
       data.forEach((item) => {
         if (item.id === ids[i]) {
+          console.log(item);
           setSelectedItems([...selectedItems, item]);
         }
       });
