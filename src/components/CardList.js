@@ -5,30 +5,22 @@ import styles from "./CardList.module.css";
 import { ItemsContext } from "../context/ItemsContext";
 
 const CardList = () => {
-  const [data, setData] = React.useState([]);
-
-  const { countItems, setCountItems, dataItems, setDataItems, ids, setIds } =
-    React.useContext(ItemsContext);
-
-  const getData = async () => {
-    const res = await fetch("https://postmanmaster.herokuapp.com/fruit/");
-    const json = await res.json();
-    setData(json);
-  };
+  const {
+    countItems,
+    setCountItems,
+    dataItems,
+    setDataItems,
+    ids,
+    setIds,
+    data,
+    setData,
+  } = React.useContext(ItemsContext);
 
   function handleClick(e) {
     setCountItems(countItems + 1);
     const id = e.target.parentElement.getAttribute("id");
-    if (!ids.includes(id)) {
-      return setIds([...ids, id]);
-    } else {
-      return setIds([...ids]);
-    }
+    setIds([...ids, id]);
   }
-
-  React.useEffect(() => {
-    getData();
-  }, []);
 
   if (!data) return null;
   return (

@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 import { ItemsContext } from "../context/ItemsContext";
 
 const Header = () => {
-  const { countItems } = React.useContext(ItemsContext);
+  const { ids } = React.useContext(ItemsContext);
 
   return (
     <header className={styles.header}>
@@ -18,7 +18,7 @@ const Header = () => {
           <GiFruitBowl className={styles.icons} size={68} color="#92140c" />
         </Link>
         <div className={styles.cart}>
-          {countItems && <span className={styles.count}>{countItems}</span>}
+          {ids.length > 0 && <span className={styles.count}>{ids.length}</span>}
           <Link to="/cart">
             <FaShoppingCart
               className={styles.icons}

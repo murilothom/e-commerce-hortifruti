@@ -5,29 +5,33 @@ import styles from "./CardList.module.css";
 import { ItemsContext } from "../context/ItemsContext";
 
 const CartCardList = () => {
-  const [data, setData] = React.useState([]);
+  const [selectedItems, setSelectedItems] = React.useState([]);
 
-  const { countItems, setCountItems, dataItems, setDataItems, ids, setIds } =
-    React.useContext(ItemsContext);
+  const {
+    countItems,
+    setCountItems,
+    dataItems,
+    setDataItems,
+    ids,
+    setIds,
+    data,
+    setData,
+  } = React.useContext(ItemsContext);
 
   React.useEffect(() => {
-    ids.forEach((id) => {
-      fetch("https://postmanmaster.herokuapp.com/fruit/" + id)
-        .then((res) => res.json())
-        .then((json) => {
-          if (!data.includes(json.id)) {
-            return setData([...data, json]);
-          } else {
-            return setData([...data]);
-          }
-        });
-    });
-  }, [ids]);
+    for (let i = 0; i < ids.length; i++) {
+      data.forEach((item) => {
+        if (item.id === ids[i]) {
+          setSelectedItems([...selectedItems, item]);
+        }
+      });
+    }
+  }, []);
 
-  if (!data) return null;
+  if (!selectedItems) return null;
   return (
     <ul className={styles.cards}>
-      {data.map((item) => (
+      {selectedItems.map((item) => (
         <li className={styles.card} id={item.id} key={item.id}>
           <h2>
             Name: <span>{item.name}</span>
