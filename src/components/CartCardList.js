@@ -11,11 +11,16 @@ const CartCardList = () => {
     React.useContext(ItemsContext);
 
   React.useEffect(() => {
+    setSelectedItems([]);
     for (let i = 0; i < ids.length; i++) {
       data.forEach((item) => {
         if (item.id === ids[i]) {
-          console.log(item);
-          setSelectedItems([...selectedItems, item]);
+          setSelectedItems((selectedItems) => {
+            if (!selectedItems.includes(item)) {
+              return [...selectedItems, item];
+            }
+            return [...selectedItems];
+          });
         }
       });
     }
