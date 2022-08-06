@@ -7,7 +7,8 @@ import { ItemsContext } from "../context/ItemsContext";
 import { FaSearch } from "react-icons/fa";
 
 const CardList = () => {
-  const { ids, setIds, data, count, setCount } = React.useContext(ItemsContext);
+  const { ids, setIds, data, count, setCount, loading } =
+    React.useContext(ItemsContext);
   const [searchInput, setSearchInput] = React.useState("");
 
   function handleClick(e) {
@@ -24,6 +25,13 @@ const CardList = () => {
   }
 
   if (!data) return null;
+  if (loading)
+    return (
+      <div className="loading-content">
+        <div className="loading"></div>
+        <p>buscando por frutas</p>
+      </div>
+    );
   return (
     <section>
       <div className={styles.input}>

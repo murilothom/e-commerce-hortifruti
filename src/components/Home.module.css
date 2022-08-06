@@ -10,3 +10,9 @@
 .content {
   min-height: calc(100vh - 5.25rem);
 }
+
+@media (max-width: 800px) {
+  .main h1 {
+    font-size: 2.5rem;
+  }
+}

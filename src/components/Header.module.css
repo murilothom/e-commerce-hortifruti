@@ -2,6 +2,9 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   width: 100%;
   background: #be7c4d;
+  position: fixed;
+  z-index: 100;
+  top: 0;
 }
 
 .nav {
@@ -11,24 +14,35 @@
   height: 4rem;
 }
 
+.logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-transform: lowercase;
+  font-weight: 100;
+}
+
+.logo span {
+  font-weight: 700;
+}
+
 .icons {
-  padding: 0.5rem 0;
   transition: 0.3s;
   cursor: pointer;
 }
-
+.logo:hover,
 .icons:hover {
-  fill: #a41b11;
+  fill: #e1e1e1;
+  color: #e1e1e1;
 }
 
-.cart {
+.iconsCards {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .count {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 100;
 }

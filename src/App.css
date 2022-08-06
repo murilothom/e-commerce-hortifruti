@@ -3,6 +3,7 @@
 }
 
 body {
+  padding-top: 4rem;
   margin: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,4 +49,35 @@ input {
   max-width: 90rem;
   padding: 0 3rem;
   margin: 0 auto;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loading-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.loading {
+  width: 65px;
+  height: 65px;
+  border: 10px solid;
+  border-color: #be7c4d transparent transparent;
+  border-radius: 50%;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

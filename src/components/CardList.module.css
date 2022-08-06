@@ -120,6 +120,19 @@
   outline: none;
   background: #2b2a2c;
   font-size: 1rem;
-
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .input {
+    gap: 10px;
+    padding: 0.75rem 0.875rem;
+    width: 100%;
+  }
+  .input input {
+    font-size: 0.875rem;
+  }
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
