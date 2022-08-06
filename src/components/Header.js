@@ -2,14 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { GiFruitBowl } from "react-icons/gi";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 
 import styles from "./Header.module.css";
 
 import { ItemsContext } from "../context/ItemsContext";
 
 const Header = () => {
-  const { ids } = React.useContext(ItemsContext);
+  const { ids, setIds } = React.useContext(ItemsContext);
+
+  function handleCleanUp() {
+    setIds([]);
+  }
 
   return (
     <header className={styles.header}>
@@ -26,6 +30,12 @@ const Header = () => {
               color="#92140c"
             />
           </Link>
+          <FaTrashAlt
+            className={styles.icons}
+            size={52}
+            color="#92140c"
+            onClick={handleCleanUp}
+          />
         </div>
       </nav>
     </header>

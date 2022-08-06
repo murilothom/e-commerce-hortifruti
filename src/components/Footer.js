@@ -6,7 +6,10 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p className={`${styles.content} container`}>
-        Created by Murilo Thom &copy;
+        Criado por{" "}
+        <a href="https://murilothom.com" rel="noreferrer" target="_blank">
+          Murilo Thom
+        </a>
       </p>
     </footer>
   );

@@ -10,3 +10,21 @@
 .content {
   min-height: calc(100vh - 5.25rem);
 }
+
+.titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.titles .buying {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.buying::after {
+  content: ".";
+  display: inline-block;
+  color: #be7c4d;
+}
