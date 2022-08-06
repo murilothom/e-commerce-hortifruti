@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./CardList.module.css";
 
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrashAlt } from "react-icons/fa";
 
 import { ItemsContext } from "../context/ItemsContext";
 
@@ -12,7 +12,7 @@ const CartCardList = () => {
   const [searchInput, setSearchInput] = React.useState("");
   const { ids, setIds, data, count, setCount } = React.useContext(ItemsContext);
 
-  function handleClick(e) {
+  function handleOperation(e) {
     const id = e.target.parentElement.parentElement.getAttribute("id");
     let counter = count[id];
     if (e.target.innerText === "+") {
@@ -23,6 +23,23 @@ const CartCardList = () => {
       ids.splice(ids.indexOf(id), 1);
       setRemoveItems(true);
     }
+    setCount({ ...count, [id]: counter });
+  }
+
+  function handleRemove(e) {
+    let id;
+    if (e.target.parentElement.localName === "svg") {
+      id = e.target.parentElement.parentElement.getAttribute("id");
+    } else if (e.target.localName === "svg") {
+      id = e.target.parentElement.getAttribute("id");
+    }
+    let counter = count[id];
+    for (let i = 0; i < counter; i++) {
+      ids.splice(ids.indexOf(id), 1);
+    }
+    count[id] = 0;
+    counter = 0;
+    setRemoveItems(true);
     setCount({ ...count, [id]: counter });
   }
 
@@ -68,6 +85,12 @@ const CartCardList = () => {
           .map((item) => (
             <li className={styles.card} id={item.id} key={item.id}>
               <h2>{item.name}</h2>
+              <FaTrashAlt
+                className={styles.trash}
+                size={28}
+                color="#fff"
+                onClick={handleRemove}
+              />
               <h3>
                 Espécie: <span>{item.genus}</span>
               </h3>
@@ -98,11 +121,17 @@ const CartCardList = () => {
                 </div>
               </div>
               <div className={styles.addrem}>
-                <button onClick={handleClick} className={styles.buttonItems}>
+                <button
+                  onClick={handleOperation}
+                  className={styles.buttonItems}
+                >
                   +
                 </button>
                 <p className={styles.count}>{count[item.id]}</p>
-                <button onClick={handleClick} className={styles.buttonItems}>
+                <button
+                  onClick={handleOperation}
+                  className={styles.buttonItems}
+                >
                   -
                 </button>
               </div>

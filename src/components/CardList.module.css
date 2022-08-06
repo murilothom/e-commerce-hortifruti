@@ -15,11 +15,19 @@
   gap: 1rem;
   letter-spacing: 0.5px;
   box-shadow: 4px 4px 0 #673a1b;
+  position: relative;
+}
+
+.trash {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  cursor: pointer;
 }
 
 .card h2 {
-  font-size: 2rem;
-  align-self: center;
+  font-size: 1.875rem;
+  align-self: flex-start;
 }
 
 .card h3 {

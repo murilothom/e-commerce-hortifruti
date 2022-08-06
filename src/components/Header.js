@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { GiFruitBowl } from "react-icons/gi";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 
 import styles from "./Header.module.css";
